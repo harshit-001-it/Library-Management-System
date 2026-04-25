@@ -61,16 +61,16 @@ const AuthPortal = () => {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex bg-surface-container-low p-1 rounded-2xl mb-8 border border-outline-variant">
+        <div className="flex bg-surface-container-low p-1.5 rounded-2xl mb-8 border border-outline-variant/30 backdrop-blur-md">
           <button 
             onClick={() => setIsLogin(true)}
-            className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${isLogin ? 'bg-surface-container-highest text-primary' : 'text-on-surface-variant hover:text-white'}`}
+            className={`flex-1 py-3.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 ${isLogin ? 'bg-primary text-surface shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:text-white'}`}
           >
             Sign In
           </button>
           <button 
             onClick={() => setIsLogin(false)}
-            className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${!isLogin ? 'bg-surface-container-highest text-primary' : 'text-on-surface-variant hover:text-white'}`}
+            className={`flex-1 py-3.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 ${!isLogin ? 'bg-primary text-surface shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:text-white'}`}
           >
             Register
           </button>
@@ -125,26 +125,26 @@ const AuthPortal = () => {
             )}
           </AnimatePresence>
 
-          <div className="relative">
-            <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-outline" />
+          <div className="relative group">
+            <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
             <input
               type="email"
               placeholder="Archive Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-surface-container-low border border-outline-variant rounded-2xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-primary/50 transition-all"
+              className="w-full bg-surface-container-low/50 border border-outline-variant/50 rounded-2xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-surface-container-low transition-all placeholder:text-outline/50"
               required
             />
           </div>
 
-          <div className="relative">
-            <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-outline" />
+          <div className="relative group">
+            <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
             <input
               type="password"
               placeholder="Access Key"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-surface-container-low border border-outline-variant rounded-2xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-primary/50 transition-all"
+              className="w-full bg-surface-container-low/50 border border-outline-variant/50 rounded-2xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-surface-container-low transition-all placeholder:text-outline/50"
               required
             />
           </div>
