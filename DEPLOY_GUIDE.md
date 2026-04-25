@@ -35,9 +35,15 @@ This guide will help you deploy the AI Library Management System to the cloud fo
    - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 5. **Environment Variables**:
    - Click **Advanced > Add Environment Variable**.
-   - `DATABASE_URL`: (The Supabase URI you copied)
-   - `GEMINI_API_KEY`: (Your Google AI Studio Key)
-   - `SECRET_KEY`: (A random string, e.g., `supersecret123`)
+   - `DATABASE_URL`: (Paste your Supabase URI and **replace `[YOUR-PASSWORD]`** with your actual password).
+   - `GEMINI_API_KEY`: 
+       1. Go to [Google AI Studio](https://aistudio.google.com/).
+       2. Click **"Get API key"** on the left sidebar.
+       3. Click **"Create API key in new project"**.
+       4. Copy the key and paste it into Render.
+   - `SECRET_KEY`: 
+       - This is for security. You can use any long random string.
+       - **Pro Tip**: Run `python -c "import secrets; print(secrets.token_urlsafe(32))"` in your terminal to generate a secure one.
 6. Click **Create Web Service**. Wait for the "Live" status.
 7. **Copy your Render URL**: (e.g., `https://library-backend.onrender.com`)
 
