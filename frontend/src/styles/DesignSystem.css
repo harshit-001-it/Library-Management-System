@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --surface: #0c1324;
+  --surface-dim: #0c1324;
+  --surface-bright: #33394c;
+  --surface-container-lowest: #070d1f;
+  --surface-container-low: #151b2d;
+  --surface-container: #191f31;
+  --surface-container-high: #23293c;
+  --surface-container-highest: #2e3447;
+  
+  --primary: #c0c1ff;
+  --primary-container: #8083ff;
+  --secondary: #ddb7ff;
+  --secondary-container: #6f00be;
+  --tertiary: #ffb783;
+  
+  --on-surface: #dce1fb;
+  --on-surface-variant: #c7c4d7;
+  --outline: #908fa0;
+  --outline-variant: rgba(144, 143, 160, 0.15);
+  
+  /* Gradients */
+  --signature-gradient: linear-gradient(135deg, #c0c1ff 0%, #ddb7ff 100%);
+  --glass-fill: rgba(51, 57, 76, 0.4);
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  
+  /* Shadows/Glows */
+  --ambient-glow: 0 0 40px rgba(192, 193, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.glass {
+  background: var(--glass-fill);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--outline-variant);
+  box-shadow: var(--ambient-glow);
+}
+
+.btn-primary {
+  background: var(--signature-gradient);
+  color: #1000a9;
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(192, 193, 255, 0.3);
+}
+
+.ghost-border {
+  border: 1px solid var(--outline-variant);
+}
+
+/* Animations */
+@keyframes neural-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.neural-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+  animation: neural-pulse 2s infinite ease-in-out;
+}
