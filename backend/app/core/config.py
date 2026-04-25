@@ -1,5 +1,5 @@
 import os
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,7 +22,6 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "models/embedding-001"
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
 
-    class Config:
-        case_sensitive = True
+    model_config = SettingsConfigDict(case_sensitive=True, env_file=".env")
 
 settings = Settings()

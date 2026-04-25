@@ -11,7 +11,7 @@ class AIService:
     def __init__(self):
         self.index = None
         self.book_ids = []
-        self.gemini_key = settings.GEMINI_API_KEY
+        self.gemini_key = getattr(settings, 'GEMINI_API_KEY', None)
         if self.gemini_key:
             genai.configure(api_key=self.gemini_key)
 
